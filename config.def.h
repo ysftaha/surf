@@ -6,6 +6,7 @@ static char *styledir       = "~/.surf/styles/";
 static char *certdir        = "~/.surf/certificates/";
 static char *cachedir       = "~/.surf/cache/";
 static char *cookiefile     = "~/.surf/cookies.txt";
+static char *searchurl      = "duckduckgo.com/?q=%s";
 static char **plugindirs    = (char*[]){
 	"~/.surf/plugins/",
 	LIBPREFIX "/mozilla/plugins/",
@@ -81,6 +82,14 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
              "| dmenu -l 10 -p \"$4\" -w $1)\" && " \
              "xprop -id $1 -f $3 8s -set $3 \"$prop\"", \
              "surf-setprop", winid, r, s, p, NULL \
+        } \
+}
+
+#define SEARCH() { \
+        .v = (const char *[]){ "/bin/sh", "-c", \
+             "xprop -id $1 -f $2 8s -set $2 \"" \
+             "$(dmenu -p Search: -w $1 < /dev/null)\"", \
+             "surf-search", winid, "_SURF_SEARCH", NULL \
         } \
 }
 
@@ -191,6 +200,7 @@ static Key keys[] = {
 	{ 0,                     GDK_KEY_F11,    togglefullscreen, { 0 } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_o,      toggleinspector, { 0 } },
 
+	{ MODKEY,                GDK_KEY_s,      spawn,      SEARCH() },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_c,      toggle,     { .i = CaretBrowsing } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_f,      toggle,     { .i = FrameFlattening } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_g,      toggle,     { .i = Geolocation } },
