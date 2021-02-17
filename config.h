@@ -43,7 +43,7 @@ static Parameter defconfig[ParameterLast] = {
 	[LoadImages]          =       { { .i = 1 },     },
 	[MediaManualPlay]     =       { { .i = 1 },     },
 	[Plugins]             =       { { .i = 1 },     },
-	[PreferredLanguages]  =       { { .v = (char *[]){ NULL } }, },
+	[PreferredLanguages]  =       { { .v = (char *[]){ "en_US", NULL } }, },
 	[RunInFullscreen]     =       { { .i = 0 },     },
 	[ScrollBars]          =       { { .i = 1 },     },
 	[ShowIndicators]      =       { { .i = 1 },     },
