@@ -54,7 +54,7 @@ static Parameter defconfig[ParameterLast] = {
 	[StrictTLS]           =       { { .i = 1 },     },
 	[Style]               =       { { .i = 1 },     },
 	[WebGL]               =       { { .i = 0 },     },
-	[ZoomLevel]           =       { { .f = 1.0 },   },
+	[ZoomLevel]           =       { { .f = 1.27 },   },
 	[ClipboardNotPrimary] =				{ { .i = 1 },			},
 };
 
@@ -137,9 +137,10 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
  */
 static SiteSpecific styles[] = {
 	/* regexp               file in $styledir */
-	{ ".*wikipedia.org.*" , "wikipedia.css" },
-	{ ".*lobste.rs.*"     , "lobsters.css" },
-	{ ".*"                ,  "default.css"  }
+	{ ".*wikipedia.org.*"       , "wikipedia.css" },
+	{ ".*lobste.rs.*"           , "lobsters.css"  },
+  { "*.archlinux.org.*"  , "arch.css"      },
+	{ ".*"                      ,  "default.css"  }
 };
 
 /* certificates */
