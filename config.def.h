@@ -6,7 +6,7 @@ static char *styledir       = "~/.surf/styles/";
 static char *certdir        = "~/.surf/certificates/";
 static char *cachedir       = "~/.surf/cache/";
 static char *cookiefile     = "~/.surf/cookies.txt";
-static char *searchurl      = "startpage.com/do/dsearch?query=%s";
+static char *searchurl      = "duckduckgo.com/?q=%s";
 static char **plugindirs    = (char*[]){
 	"~/.surf/plugins/",
 	LIBPREFIX "/mozilla/plugins/",
@@ -139,7 +139,8 @@ static SiteSpecific styles[] = {
 	/* regexp               file in $styledir */
 	{ ".*wikipedia.org.*"       , "wikipedia.css" },
 	{ ".*lobste.rs.*"           , "lobsters.css"  },
-  { "*.archlinux.org.*"  , "arch.css"      },
+	{ ".*ycombinator.com.*"     , "ycombinator.css"  },
+  { "*.archlinux.org.*"       , "arch.css"      },
 	{ ".*"                      ,  "default.css"  }
 };
 
